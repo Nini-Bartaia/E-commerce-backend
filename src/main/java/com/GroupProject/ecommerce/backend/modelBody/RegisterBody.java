@@ -1,7 +1,5 @@
 package com.GroupProject.ecommerce.backend.modelBody;
 
-
-
 public class RegisterBody {
 
     private String username;

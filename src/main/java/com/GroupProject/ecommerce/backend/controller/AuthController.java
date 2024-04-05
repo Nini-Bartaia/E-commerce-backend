@@ -25,6 +25,8 @@ public class AuthController {
     public RegisterResponse registerUser(@RequestBody @Valid RegisterBody registerBody){
 
         User user = userService.registerUser(registerBody);
+        userHolder.set(user);
+
         return new RegisterResponse(user);
 
     }
@@ -32,7 +34,8 @@ public class AuthController {
     @PostMapping("/login")
     public LoginResponse loginUser(@RequestBody LoginBody loginBody) {
         User user = userService.login(loginBody);
-        return  new LoginResponse(user);
+        userHolder.set(user);
+        return  new LoginResponse(user, userService.getType());
     }
 
 

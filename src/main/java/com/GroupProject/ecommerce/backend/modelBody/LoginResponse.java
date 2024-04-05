@@ -28,11 +28,12 @@ public class LoginResponse {
         this.user = user;
     }
 
-    public boolean isAdmin() {
+    public boolean getType() {
         return isAdmin;
     }
 
-    public void setAdmin(boolean isAdmin) {
+    public void setType(boolean isAdmin) {
         this.isAdmin = isAdmin;
     }
+
 }

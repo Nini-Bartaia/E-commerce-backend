@@ -8,12 +8,15 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class UserService {
 
 
     public static final List<User> users = new ArrayList<>();
+
+    public static UserType type;
 
     public User registerUser(RegisterBody registrationBody){
 
@@ -35,9 +38,11 @@ public class UserService {
         for (User user : users) {
             if (user.getUsername().equals(loginBody.getUsername()) && user.getPassword().equals(loginBody.getPassword())) {
                 // Return the user if username and password match
+                type=user.getType();
                 return user;
             }
         }
+
         // Return null if no matching user found
         return null;
     }
@@ -45,6 +50,16 @@ public class UserService {
     public List<User> getUsers(){
 
         return users;
+    }
+
+    public boolean getType(){
+
+        if(Objects.equals(type.toString(), "ADMIN")){
+
+            return true;
+        }else{
+            return false;
+        }
     }
 
 

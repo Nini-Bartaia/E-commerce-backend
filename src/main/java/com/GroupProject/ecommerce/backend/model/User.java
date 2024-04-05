@@ -10,7 +10,6 @@ public class User {
     @Size(min = 3, max = 30, message = "Invalid Name: Must be of 3 - 30 characters")
     private String username;
     @NotNull
-
     private UserType type; // can be either "admin" or "user"
     private double budget=1000;
     @NotNull
